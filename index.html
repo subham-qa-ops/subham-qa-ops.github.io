@@ -4,6 +4,16 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subham Chakraborty | QA & Operations Architect</title>
+    
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NN2BJ4XT3"></script>
+    <script>
+      window.dataLayer = window.dataLayer || [];
+      function gtag(){dataLayer.push(arguments);}
+      gtag('js', new Date());
+
+      gtag('config', 'G-6NN2BJ4XT3');
+    </script>
+
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
@@ -48,6 +58,18 @@
         .section-header { margin-bottom: 70px; }
         .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 48px; margin: 0 0 15px; font-weight: 900; letter-spacing: -1px; }
         .section-header p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0; }
+
+        /* The QA Story (Methodology) */
+        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .story-card { background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border-subtle); transition: 0.4s; position: relative; overflow: hidden; }
+        .story-card:hover { border-color: var(--accent-glow); transform: translateY(-5px); }
+        .story-icon { font-size: 32px; margin-bottom: 20px; display: block; }
+        .story-card h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; margin: 0 0 15px; }
+        .story-card p { color: var(--text-muted); font-size: 15px; margin: 0; }
+
+        .expertise-wrapper { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+        .exp-badge { background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 10px 20px; border-radius: 30px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; }
+        .exp-badge:hover { background: rgba(0, 229, 255, 0.1); border-color: var(--accent-glow); color: var(--accent-glow); }
 
         /* ROI Calculator Styles */
         .calculator-box { background: var(--bg-card); border: 1px solid var(--border-subtle); border-radius: 20px; padding: 50px; display: flex; gap: 50px; align-items: center; flex-wrap: wrap; position: relative; overflow: hidden; }
@@ -106,6 +128,7 @@
     <nav>
         <a href="#" class="nav-logo">Subham Chakraborty</a>
         <div class="nav-links">
+            <a href="#philosophy">Methodology</a>
             <a href="#calculator">ROI Engine</a>
             <a href="#ecosystem">Automations</a>
             <a href="#career">Career Impact</a>
@@ -129,6 +152,41 @@
         <div class="impact-stat"><h3>₹1.7 Cr</h3><p>Saved via Process Redesign</p></div>
         <div class="impact-stat"><h3>26%</h3><p>Highest NPS Improvement</p></div>
         <div class="impact-stat"><h3>100%</h3><p>Data Precision Scaled</p></div>
+    </div>
+
+    <div class="container" id="philosophy">
+        <div class="section-header animate">
+            <h2>The Quality Engineering Mindset</h2>
+            <p>True operational excellence isn't just finding errors—it's building the systemic architecture that prevents them from ever happening again.</p>
+        </div>
+
+        <div class="story-grid animate delay-1">
+            <div class="story-card">
+                <span class="story-icon">🔍</span>
+                <h3>1. Root Cause (RCA)</h3>
+                <p>Leveraging Six Sigma and deep data analysis to trace NPS, CSAT, and operational drops to their origin point, identifying the exact process deviations.</p>
+            </div>
+            <div class="story-card">
+                <span class="story-icon">📐</span>
+                <h3>2. Process Architecture</h3>
+                <p>Redesigning the workflow to eliminate ambiguity. Conducting impact assessments to ensure the solution reduces customer effort and drives lean delivery.</p>
+            </div>
+            <div class="story-card">
+                <span class="story-icon">⚙️</span>
+                <h3>3. Digital Automation</h3>
+                <p>Deploying JavaScript, Apps Script, and BI dashboards to hardcode the new process—removing human dependency and establishing strict SLA governance.</p>
+            </div>
+        </div>
+
+        <div class="expertise-wrapper animate delay-2">
+            <div class="exp-badge">Six Sigma Methodologies</div>
+            <div class="exp-badge">Root Cause Analysis (RCA)</div>
+            <div class="exp-badge">NPS & CSAT Optimization</div>
+            <div class="exp-badge">Google Apps Script (JS)</div>
+            <div class="exp-badge">Looker Studio / Power BI</div>
+            <div class="exp-badge">Lean Impact Assessment</div>
+            <div class="exp-badge">HTML/CSS UI Development</div>
+        </div>
     </div>
 
     <div class="container" id="calculator">
@@ -163,6 +221,7 @@
         </div>
 
         <div class="project-grid">
+            
             <div class="card animate">
                 <div class="card-img-wrapper"><img src="command-center.png" alt="Command Center" class="card-img"></div>
                 <div class="card-content">
@@ -173,25 +232,56 @@
                 </div>
             </div>
 
-            <div class="card animate">
-                <div class="card-img-wrapper"><img src="audit-tool.png" alt="SLA Tracker" class="card-img"></div>
+            <div class="card animate delay-1">
+                <div class="card-img-wrapper"><img src="process-hub.png" alt="Process Knowledge Hub" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">02 | 5-Hour SLA Tracker</h3>
-                    <div class="impact-box"><strong>Measurable Impact</strong><p>Drives down backlog volume and aging by ensuring "One-Touch" rapid corrections.</p></div>
-                    <div class="card-desc"><strong>Solution:</strong> A closed-loop web app that dispatches actions directly to agents and enforces a strict 5-hour resolution SLA.</div>
-                    <div class="tags"><span class="tag">JavaScript</span> <span class="tag">HTML/CSS</span> <span class="tag">Apps Script</span></div>
+                    <h3 class="card-title">02 | Process Knowledge Hub</h3>
+                    <div class="impact-box"><strong>Measurable Impact</strong><p>Ensures 100% floor-wide visibility of process changes with timestamped digital audit trails.</p></div>
+                    <div class="card-desc"><strong>Solution:</strong> Built a mandatory web portal where agents must securely log in to read and digitally "Acknowledge" updates.</div>
+                    <div class="tags"><span class="tag">Web App</span> <span class="tag">UI/UX</span> <span class="tag">Compliance Tech</span></div>
                 </div>
             </div>
 
-            <div class="card animate">
+            <div class="card animate delay-2">
                 <div class="card-img-wrapper"><img src="huddle-portal.png" alt="Huddle Portal" class="card-img"></div>
                 <div class="card-content">
                     <h3 class="card-title">03 | QA Huddle Dispatcher</h3>
                     <div class="impact-box"><strong>Measurable Impact</strong><p>Recaptures QA prep time and allows absent agents to self-serve missed huddle insights.</p></div>
                     <div class="card-desc"><strong>Solution:</strong> An automated portal that compiles targeted errors, syncs attendance from Sheets, and archives summaries digitally.</div>
-                    <div class="tags"><span class="tag">Web App</span> <span class="tag">Workflow Automation</span></div>
+                    <div class="tags"><span class="tag">Apps Script</span> <span class="tag">Workflow Automation</span></div>
                 </div>
             </div>
+
+            <div class="card animate">
+                <div class="card-img-wrapper"><img src="audit-tool.png" alt="SLA Tracker" class="card-img"></div>
+                <div class="card-content">
+                    <h3 class="card-title">04 | 5-Hour SLA Tracker</h3>
+                    <div class="impact-box"><strong>Measurable Impact</strong><p>Drives down backlog volume and aging by ensuring "One-Touch" rapid corrections.</p></div>
+                    <div class="card-desc"><strong>Solution:</strong> A closed-loop web app that dispatches actions directly to agents and enforces a strict 5-hour resolution SLA.</div>
+                    <div class="tags"><span class="tag">JavaScript</span> <span class="tag">HTML/CSS</span> <span class="tag">Escalation Logic</span></div>
+                </div>
+            </div>
+
+            <div class="card animate delay-1">
+                <div class="card-img-wrapper"><img src="governance-alerts.png" alt="Governance Alerts" class="card-img"></div>
+                <div class="card-content">
+                    <h3 class="card-title">05 | Governance Alerts</h3>
+                    <div class="impact-box"><strong>Measurable Impact</strong><p>Enforces a strict 48-Hour Acknowledgment SLA without manual QA intervention.</p></div>
+                    <div class="card-desc"><strong>Solution:</strong> Server-side triggers that autonomously dispatch emails and escalate to leadership if ignored past 48 hours.</div>
+                    <div class="tags"><span class="tag">Server Triggers</span> <span class="tag">System Architecture</span></div>
+                </div>
+            </div>
+
+            <div class="card animate delay-2">
+                <div class="card-img-wrapper"><img src="data-parsers.png" alt="Data Parsers" class="card-img"></div>
+                <div class="card-content">
+                    <h3 class="card-title">06 | Intelligent Data Parsers</h3>
+                    <div class="impact-box"><strong>Measurable Impact</strong><p>Eliminates calculation errors entirely and enables "Golden Hour" service recovery for DSATs.</p></div>
+                    <div class="card-desc"><strong>Solution:</strong> An extraction engine that scans logs and emails, maps data, and writes to the master database instantly.</div>
+                    <div class="tags"><span class="tag">ETL Pipeline</span> <span class="tag">Data Extraction</span></div>
+                </div>
+            </div>
+
         </div>
     </div>
 
@@ -219,6 +309,12 @@
                 <h3>Paytm | Senior Quality Associate</h3>
                 <h4>2020 - 2021</h4>
                 <p>Standardized practices and automated email support processes, leading to a 42% increase in productivity through BOT responses. Improved overall CSAT scores by 14%.</p>
+            </div>
+
+            <div class="timeline-item">
+                <h3>Meesho | Quality Analyst</h3>
+                <h4>2018 - 2020</h4>
+                <p>Executed key projects driving a 37% increase in CS quality and a 21% boost in NPS. Awarded Best Performer four times for outstanding contributions to process improvements.</p>
             </div>
         </div>
     </div>
@@ -253,7 +349,6 @@
 
             // Math: agents * hours per week * 52 weeks
             const annualHours = agents * hoursPerWeek * 52;
-            // Assuming 1 FTE = 2000 hours per year
             const ftesSaved = (annualHours / 2000).toFixed(1);
 
             document.getElementById('hoursSaved').innerText = annualHours.toLocaleString();
@@ -265,7 +360,6 @@
         function closeModal() { document.getElementById('caseStudyModal').classList.remove('active'); }
         function closeOutside(e) { if(e.target.className === 'modal-overlay active') closeModal(); }
         
-        // Run calculator once on load
         window.onload = calculateROI;
     </script>
 </body>
