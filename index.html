@@ -3,238 +3,289 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subham Chakraborty | QA Automation Engineer</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Subham Chakraborty | QA Automation Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
     <style>
         :root {
             --navy: #002244; 
+            --navy-light: #0A3663;
             --blue: #007CC3; 
-            --bg-light: #F4F6F9; 
+            --blue-glow: rgba(0, 124, 195, 0.3);
+            --bg-page: #F4F7F9; 
+            --white: #FFFFFF;
             --text-dark: #1A202C;
             --text-slate: #4A5568;
+            --border: #E2E8F0;
         }
-        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-light); color: var(--text-dark); }
-        
-        header { background-color: var(--navy); color: white; padding: 80px 20px; text-align: center; border-bottom: 4px solid var(--blue); }
-        header h1 { font-family: 'Montserrat', sans-serif; font-size: 42px; margin: 0; letter-spacing: 1px; }
-        header p { font-size: 18px; color: #A0C4DF; max-width: 800px; margin: 20px auto; line-height: 1.6; }
-        
-        .contact-btn { display: inline-block; margin-top: 20px; padding: 12px 28px; background-color: var(--blue); color: white; text-decoration: none; font-weight: bold; border-radius: 6px; transition: 0.3s; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
-        .contact-btn:hover { background-color: white; color: var(--navy); }
 
-        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 28px; color: var(--navy); border-bottom: 2px solid #CBD5E1; padding-bottom: 10px; margin-bottom: 40px; }
+        * { box-sizing: border-box; }
+        html { scroll-behavior: smooth; }
+        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-page); color: var(--text-dark); overflow-x: hidden; }
         
-        /* Skills Section */
-        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 60px; }
-        .skill-badge { background: white; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-weight: 600; border: 1px solid #CBD5E1; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 8px; }
-        .skill-badge span { color: var(--blue); font-size: 18px; }
+        /* Smooth Fade-in Animation */
+        @keyframes fadeInUp {
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
 
-        /* Project Grid */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
+        .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
+
+        /* Sticky Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(0, 34, 68, 0.95); backdrop-filter: blur(10px); padding: 15px 40px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
+        .nav-logo { color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: 1px; }
+        .nav-logo span { color: var(--blue); }
+        .nav-links a { color: #A0C4DF; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
+        .nav-links a:hover { color: var(--white); }
+
+        /* Hero Section */
+        header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 160px 20px 100px; text-align: center; position: relative; }
+        header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: var(--bg-page); clip-path: polygon(0 100%, 100% 100%, 100% 0); }
+        header h1 { font-family: 'Montserrat', sans-serif; font-size: 52px; margin: 0 0 20px; letter-spacing: -0.5px; font-weight: 800; }
+        header p { font-size: 20px; color: #A0C4DF; max-width: 800px; margin: 0 auto 35px; line-height: 1.7; font-weight: 400; }
+        .contact-btn { display: inline-block; padding: 15px 35px; background-color: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; border-radius: 8px; transition: all 0.3s; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px var(--blue-glow); }
+        .contact-btn:hover { background-color: var(--white); color: var(--navy); box-shadow: 0 10px 25px rgba(255,255,255,0.2); transform: translateY(-2px); }
+
+        /* Floating Metrics Bar */
+        .metrics-container { max-width: 1000px; margin: -60px auto 60px; display: flex; justify-content: space-between; gap: 20px; position: relative; z-index: 10; padding: 0 20px; }
+        .metric-card { background: var(--white); padding: 25px; border-radius: 12px; flex: 1; text-align: center; box-shadow: 0 15px 35px rgba(0,34,68,0.08); border: 1px solid var(--border); transition: 0.3s; }
+        .metric-card:hover { transform: translateY(-5px); border-color: var(--blue); }
+        .metric-number { font-family: 'Montserrat', sans-serif; font-size: 32px; color: var(--blue); font-weight: 800; margin-bottom: 5px; }
+        .metric-label { font-size: 13px; color: var(--text-slate); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+
+        .container { max-width: 1250px; margin: 0 auto 80px; padding: 0 20px; }
+        .section-header { text-align: center; margin-bottom: 50px; }
+        .section-title { font-family: 'Montserrat', sans-serif; font-size: 36px; color: var(--navy); margin: 0 0 15px; font-weight: 800; letter-spacing: -0.5px; }
+        .section-line { width: 60px; height: 4px; background: var(--blue); margin: 0 auto; border-radius: 2px; }
+
+        /* Categorized Skills */
+        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
+        .skill-category { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border); }
+        .skill-category h3 { font-family: 'Montserrat', sans-serif; color: var(--navy); margin-top: 0; border-bottom: 2px solid var(--bg-page); padding-bottom: 10px; font-size: 18px; }
+        .skill-list { list-style: none; padding: 0; margin: 0; }
+        .skill-list li { margin-bottom: 12px; font-size: 15px; color: var(--text-slate); display: flex; align-items: center; font-weight: 600; }
+        .skill-list li::before { content: '▹'; color: var(--blue); font-size: 20px; margin-right: 10px; font-weight: bold; }
+
+        /* Premium Project Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; }
         
-        .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #E2E8F0; display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,34,68,0.1); border-color: var(--blue); }
+        .card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,34,68,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid var(--border); display: flex; flex-direction: column; }
+        .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,34,68,0.15); }
         
-        /* FIXED IMAGE SCALING */
-        .card-img { width: 100%; height: 250px; object-fit: contain; background-color: #E2E8F0; border-bottom: 1px solid #CBD5E1; padding: 10px; box-sizing: border-box; }
+        .card-img-wrapper { background: #E2E8F0; padding: 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border); }
+        .card-img { width: 100%; height: 220px; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); background: var(--white); }
         
-        .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-title { font-family: 'Montserrat', sans-serif; font-size: 20px; color: var(--navy); margin: 0 0 20px 0; border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; }
+        .card-content { padding: 35px 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; }
+        .card-title { font-family: 'Montserrat', sans-serif; font-size: 22px; color: var(--navy); margin: 0; font-weight: 700; }
         
-        .card-text-block { margin-bottom: 15px; font-size: 14px; line-height: 1.6; color: var(--text-slate); }
-        .card-text-block strong { color: var(--navy); display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        .impact-box { background: rgba(39, 174, 96, 0.1); border-left: 3px solid #27AE60; padding: 15px; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
+        .impact-box strong { display: block; color: #166534; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
+        .impact-box p { margin: 0; font-size: 13.5px; color: var(--text-dark); font-weight: 600; line-height: 1.5; }
+
+        .card-text-block { margin-bottom: 15px; font-size: 14px; line-height: 1.7; color: var(--text-slate); }
+        .card-text-block strong { color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; width: 85px; }
         
-        .tags { margin-top: auto; padding-top: 20px; }
-        .tag { background: #E2E8F0; color: var(--navy); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; margin-right: 5px; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .tags { margin-top: auto; padding-top: 25px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px; }
+        .tag { background: rgba(0, 124, 195, 0.08); color: var(--blue); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; border: 1px solid rgba(0, 124, 195, 0.2); }
         
-        footer { text-align: center; padding: 30px; background: var(--navy); color: white; margin-top: 60px; font-size: 13px; color: #A0C4DF; }
+        footer { text-align: center; padding: 40px 20px; background: var(--navy); color: #A0C4DF; font-size: 14px; margin-top: auto; border-top: 5px solid var(--blue); }
+        footer strong { color: var(--white); font-family: 'Montserrat', sans-serif; letter-spacing: 1px; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 36px; }
+            .metrics-container { flex-direction: column; margin-top: -30px; }
+            .nav-links { display: none; }
+        }
     </style>
 </head>
 <body>
 
-    <header>
-        <h1>Subham Chakraborty</h1>
-        <p>Operations Strategist & Quality Assurance Automation Engineer. I bridge the gap between business operations and technology by architecting zero-touch, enterprise-level automated ecosystems.</p>
-        <a href="mailto:subham.chakraborty@cloud.com" class="contact-btn">Get In Touch</a>
+    <nav>
+        <a href="#" class="nav-logo">Subham<span>.QA</span></a>
+        <div class="nav-links">
+            <a href="#about">About</a>
+            <a href="#expertise">Expertise</a>
+            <a href="#portfolio">Ecosystem</a>
+            <a href="mailto:subham.chakraborty@cloud.com">Contact</a>
+        </div>
+    </nav>
+
+    <header id="about">
+        <div class="animate-up">
+            <h1>Architecting Zero-Touch<br>Enterprise Ecosystems</h1>
+            <p>I bridge the gap between business operations and technology. By developing intelligent automations, bespoke web apps, and BI dashboards, I transform manual QA processes into high-velocity, error-free digital infrastructures.</p>
+            <a href="#portfolio" class="contact-btn">View My Ecosystem</a>
+        </div>
     </header>
 
-    <div class="container">
-        
-        <h2 class="section-title">Core Competencies</h2>
-        <div class="skills-container">
-            <div class="skill-badge"><span>⚡</span> Process Workflow Automation</div>
-            <div class="skill-badge"><span>📊</span> Looker Studio & Data Visualization</div>
-            <div class="skill-badge"><span>💻</span> JavaScript & Google Apps Script</div>
-            <div class="skill-badge"><span>🌐</span> HTML/CSS UI Development</div>
-            <div class="skill-badge"><span>📈</span> Quality Assurance Strategy</div>
-            <div class="skill-badge"><span>⚙️</span> API & Web App Integration</div>
+    <div class="metrics-container animate-up" style="animation-delay: 0.2s;">
+        <div class="metric-card">
+            <div class="metric-number">40+</div>
+            <div class="metric-label">Hours Recaptured Monthly</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">100%</div>
+            <div class="metric-label">Data Calculation Precision</div>
+        </div>
+        <div class="metric-card">
+            <div class="metric-number">5-Hr</div>
+            <div class="metric-label">Resolution SLA Enforced</div>
+        </div>
+    </div>
+
+    <div class="container" id="expertise">
+        <div class="section-header animate-up">
+            <h2 class="section-title">Technical Expertise</h2>
+            <div class="section-line"></div>
         </div>
 
-        <h2 class="section-title">The Automation Ecosystem</h2>
-        <div class="grid">
+        <div class="skills-grid animate-up">
+            <div class="skill-category">
+                <h3>Engineering & Logic</h3>
+                <ul class="skill-list">
+                    <li>JavaScript (ES6+)</li>
+                    <li>Google Apps Script (GAS)</li>
+                    <li>HTML5 & CSS3</li>
+                    <li>API Integrations</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Data & Intelligence</h3>
+                <ul class="skill-list">
+                    <li>Looker Studio (BI)</li>
+                    <li>Data Extraction & Parsing</li>
+                    <li>ETL Pipeline Construction</li>
+                    <li>Real-time Visualization</li>
+                </ul>
+            </div>
+            <div class="skill-category">
+                <h3>Operations Strategy</h3>
+                <ul class="skill-list">
+                    <li>Workflow Automation</li>
+                    <li>SLA Enforcement Systems</li>
+                    <li>UI/UX for Internal Tools</li>
+                    <li>Quality Assurance Governance</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="section-header animate-up" id="portfolio">
+            <h2 class="section-title">The Automation Portfolio</h2>
+            <div class="section-line"></div>
+        </div>
+
+        <div class="project-grid">
             
-            <div class="card">
-                <img src="command-center.png" alt="CSG Command Center" class="card-img">
+            <div class="card animate-up">
+                <div class="card-img-wrapper"><img src="command-center.png" alt="CSG Command Center" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">01 | CSG Command Center</h3>
+                    <div class="card-header"><h3 class="card-title">01 | CSG Command Center</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        Leadership lacked a centralized, real-time view of CSG operations. Data was siloed across multiple spreadsheets, causing high reporting latency and missed coaching opportunities.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Engineered an enterprise-grade Looker Studio BI dashboard that autonomously aggregates thousands of backend data points into interactive, drill-down visualizations.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Provides leadership with "Anytime, Anywhere" drill-down visibility into floor-level metrics.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Transforms raw numbers into strategic storytelling, enabling leadership to make instant, data-driven decisions regarding capacity planning and floor-level performance.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> Data was siloed across spreadsheets, causing reporting latency and missed coaching opportunities.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> Engineered an enterprise Looker Studio BI dashboard aggregating thousands of automated backend data points.</div>
 
                     <div class="tags">
-                        <span class="tag">Looker Studio</span> 
-                        <span class="tag">Data Visualization</span>
+                        <span class="tag">Looker Studio</span> <span class="tag">Business Intelligence</span> <span class="tag">Data Viz</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="process-hub.png" alt="Process Knowledge Hub" class="card-img">
+            <div class="card animate-up" style="animation-delay: 0.1s;">
+                <div class="card-img-wrapper"><img src="process-hub.png" alt="Process Knowledge Hub" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">02 | Process Knowledge Hub</h3>
+                    <div class="card-header"><h3 class="card-title">02 | Knowledge Hub</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        Process deviations are the top drivers of errors across core metrics (CSAT, EQ, FDR, TDR). Critical updates were getting lost in crowded email inboxes, allowing agents to claim ignorance.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Engineered a centralized, mandatory web portal where agents must log in to read updates, access KB articles, and digitally "Acknowledge" receipt of new procedures.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Ensures 100% floor-wide visibility of process changes with timestamped digital audit trails.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Creates a rigid, timestamped audit trail, entirely eliminating communication gaps, mitigating compliance risks, and ensuring 100% visibility of new processes.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> Critical updates were lost in emails, allowing agents to claim ignorance and driving severe quality errors.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> Built a mandatory web portal where agents must securely log in to read and digitally "Acknowledge" updates.</div>
 
                     <div class="tags">
-                        <span class="tag">Web App</span> 
-                        <span class="tag">UI/UX</span> 
-                        <span class="tag">Compliance</span>
+                        <span class="tag">Web App</span> <span class="tag">UI/UX</span> <span class="tag">Compliance</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img">
+            <div class="card animate-up" style="animation-delay: 0.2s;">
+                <div class="card-img-wrapper"><img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">03 | QA Huddle Dispatcher</h3>
+                    <div class="card-header"><h3 class="card-title">03 | Huddle Dispatcher</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        Quality Analysts wasted extensive time manually preparing daily discussion pointers, and agents absent during huddles repeatedly missed critical process updates.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Developed an automated portal that pulls targeted errors, syncs attendance from Google Sheets, dispatches daily summaries, and saves to a searchable digital archive.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Recaptures QA prep time and allows absent agents to self-serve missed huddle insights.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Recaptures significant QA prep time, standardizes coaching across all shifts, and provides a continuous learning hub for agents to self-serve missed huddle insights.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> Manual prep was tedious, and agents absent during huddles repeatedly missed critical performance insights.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> An automated portal that compiles targeted errors, syncs attendance, and archives summaries digitally.</div>
 
                     <div class="tags">
-                        <span class="tag">Web App</span> 
-                        <span class="tag">Workflow Automation</span>
+                        <span class="tag">Google Apps Script</span> <span class="tag">Workflow Automation</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="audit-tool.png" alt="Backlog Audit Tracker" class="card-img">
+            <div class="card animate-up">
+                <div class="card-img-wrapper"><img src="audit-tool.png" alt="Backlog Audit Tracker" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">04 | Backlog Audit & SLA Tracker</h3>
+                    <div class="card-header"><h3 class="card-title">04 | SLA Tracker</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        Backlog cases were aging due to a lack of immediate accountability. Quality errors in tickets lacked a strict, trackable timeline for agents to execute corrections.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Built a high-velocity, closed-loop web application that audits cases, dispatches specific corrective actions, and strictly enforces a 5-hour resolution SLA.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Drives down backlog volume and aging by ensuring "One-Touch" rapid corrections.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Directly drives down overall backlog volume and aging by ensuring "One-Touch" rapid corrections with automated escalation triggers to leadership.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> Aging backlog cases lacked immediate accountability and strict timelines for agent corrections.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> A closed-loop app that dispatches actions directly to agents and enforces a strict 5-hour resolution SLA.</div>
 
                     <div class="tags">
-                        <span class="tag">JavaScript</span> 
-                        <span class="tag">Google Apps Script</span> 
-                        <span class="tag">HTML/CSS</span>
+                        <span class="tag">JavaScript</span> <span class="tag">HTML/CSS</span> <span class="tag">Escalation Logic</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="governance-alerts.png" alt="Governance & Reporting Alerts" class="card-img">
+            <div class="card animate-up" style="animation-delay: 0.1s;">
+                <div class="card-img-wrapper"><img src="governance-alerts.png" alt="Governance Alerts" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">05 | Governance & Reporting Alerts</h3>
+                    <div class="card-header"><h3 class="card-title">05 | Governance Alerts</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        Chasing agents and managers to acknowledge quality feedback relied entirely on human memory and manual follow-ups, causing severe delays in the coaching lifecycle.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Designed an automated accountability workflow for audits. When an audit is published, an automated email is dispatched, establishing a strict 48-Hour Acknowledgment SLA.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Enforces a strict 48-Hour Acknowledgment SLA without manual QA intervention.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Enforces rigid operational governance without QA manual intervention. Unacknowledged feedback autonomously triggers Escalation Emails directly to leadership.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> Chasing feedback acknowledgments relied on human memory, causing severe delays in coaching.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> Server-side triggers that autonomously dispatch emails and escalate to leadership if ignored past 48 hours.</div>
 
                     <div class="tags">
-                        <span class="tag">Server-side Triggers</span> 
-                        <span class="tag">Workflow Architecture</span>
+                        <span class="tag">Server Triggers</span> <span class="tag">System Architecture</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card">
-                <img src="data-parsers.png" alt="Intelligent Data Parsers" class="card-img">
+            <div class="card animate-up" style="animation-delay: 0.2s;">
+                <div class="card-img-wrapper"><img src="data-parsers.png" alt="Data Parsers" class="card-img"></div>
                 <div class="card-content">
-                    <h3 class="card-title">06 | Intelligent Data Parsers</h3>
+                    <div class="card-header"><h3 class="card-title">06 | Data Parsers</h3></div>
                     
-                    <div class="card-text-block">
-                        <strong>The Challenge</strong>
-                        The QA team wasted 45-60 minutes daily downloading CSVs, mapping agent rosters, calculating complex resolution metrics manually, and collating DSAT/EQ scores from emails.
-                    </div>
-                    
-                    <div class="card-text-block">
-                        <strong>The Solution</strong>
-                        Built a backend processing engine that autonomously scans system reports and email traffic, instantly mapping data to the roster and writing it to the master database.
+                    <div class="impact-box">
+                        <strong>Measurable Impact</strong>
+                        <p>Eliminates calculation errors and enables "Golden Hour" service recovery for DSATs.</p>
                     </div>
 
-                    <div class="card-text-block">
-                        <strong>Business Impact</strong>
-                        Eliminates human calculation errors entirely with 100% precision. Recaptures 40+ hours monthly and enables "Golden Hour" service recovery for negative DSATs.
-                    </div>
+                    <div class="card-text-block"><strong>Challenge:</strong> QA wasted 60 mins daily mapping rosters and calculating complex FDR/TDR and DSAT metrics manually.</div>
+                    <div class="card-text-block"><strong>Solution:</strong> An extraction engine that scans logs/emails, maps data, and writes to the master database instantly.</div>
 
                     <div class="tags">
-                        <span class="tag">Data Parsing</span> 
-                        <span class="tag">ETL Processing</span> 
-                        <span class="tag">Automation</span>
+                        <span class="tag">ETL Pipeline</span> <span class="tag">Data Extraction</span>
                     </div>
                 </div>
             </div>
@@ -243,7 +294,7 @@
     </div>
 
     <footer>
-        &copy; 2026 Subham Chakraborty | Designed & Built for Enterprise QA.
+        <p>&copy; 2026 <strong>Subham Chakraborty</strong> | Built for scale, designed for impact.</p>
     </footer>
 
 </body>
