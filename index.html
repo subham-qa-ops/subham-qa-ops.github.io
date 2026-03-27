@@ -17,27 +17,36 @@
         
         header { background-color: var(--navy); color: white; padding: 80px 20px; text-align: center; border-bottom: 4px solid var(--blue); }
         header h1 { font-family: 'Montserrat', sans-serif; font-size: 42px; margin: 0; letter-spacing: 1px; }
-        header p { font-size: 18px; color: #A0C4DF; max-width: 700px; margin: 20px auto; line-height: 1.6; }
+        header p { font-size: 18px; color: #A0C4DF; max-width: 800px; margin: 20px auto; line-height: 1.6; }
         
         .contact-btn { display: inline-block; margin-top: 20px; padding: 12px 28px; background-color: var(--blue); color: white; text-decoration: none; font-weight: bold; border-radius: 6px; transition: 0.3s; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 0.5px; }
         .contact-btn:hover { background-color: white; color: var(--navy); }
 
-        .container { max-width: 1100px; margin: 60px auto; padding: 0 20px; }
+        .container { max-width: 1200px; margin: 60px auto; padding: 0 20px; }
         .section-title { font-family: 'Montserrat', sans-serif; font-size: 28px; color: var(--navy); border-bottom: 2px solid #CBD5E1; padding-bottom: 10px; margin-bottom: 40px; }
         
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 40px; }
+        /* Skills Section */
+        .skills-container { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 60px; }
+        .skill-badge { background: white; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-weight: 600; border: 1px solid #CBD5E1; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 8px; }
+        .skill-badge span { color: var(--blue); }
+
+        /* Project Grid */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
         
         .card { background: white; border-radius: 8px; overflow: hidden; box-shadow: 0 4px 6px rgba(0,0,0,0.05); transition: transform 0.3s ease, box-shadow 0.3s ease; border: 1px solid #E2E8F0; display: flex; flex-direction: column; }
         .card:hover { transform: translateY(-5px); box-shadow: 0 15px 30px rgba(0,34,68,0.1); border-color: var(--blue); }
         
-        .card-img { width: 100%; height: 220px; object-fit: cover; border-bottom: 1px solid #E2E8F0; }
+        /* FIXED IMAGE SCALING */
+        .card-img { width: 100%; height: 250px; object-fit: contain; background-color: #E2E8F0; border-bottom: 1px solid #CBD5E1; padding: 10px; box-sizing: border-box; }
         
-        .card-content { padding: 30px; flex-grow: 1; }
-        .card-title { font-family: 'Montserrat', sans-serif; font-size: 20px; color: var(--navy); margin: 0 0 15px 0; }
-        .card-desc { font-size: 14px; line-height: 1.6; color: var(--text-slate); margin-bottom: 20px; }
+        .card-content { padding: 30px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-family: 'Montserrat', sans-serif; font-size: 20px; color: var(--navy); margin: 0 0 20px 0; border-bottom: 2px solid var(--bg-light); padding-bottom: 15px; }
         
-        .tags { margin-top: auto; }
-        .tag { background: #E2E8F0; color: var(--navy); padding: 5px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; margin-right: 5px; margin-bottom: 5px; letter-spacing: 0.5px; }
+        .card-text-block { margin-bottom: 15px; font-size: 14px; line-height: 1.6; color: var(--text-slate); }
+        .card-text-block strong { color: var(--navy); display: block; font-family: 'Montserrat', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 3px; }
+        
+        .tags { margin-top: auto; padding-top: 20px; }
+        .tag { background: #E2E8F0; color: var(--navy); padding: 6px 12px; border-radius: 4px; font-size: 11px; font-weight: bold; display: inline-block; margin-right: 5px; margin-bottom: 5px; letter-spacing: 0.5px; }
         
         footer { text-align: center; padding: 30px; background: var(--navy); color: white; margin-top: 60px; font-size: 13px; color: #A0C4DF; }
     </style>
@@ -46,11 +55,22 @@
 
     <header>
         <h1>Subham Chakraborty</h1>
-        <p>Operations Strategist & QA Automation Engineer transforming manual workflows into zero-touch enterprise ecosystems.</p>
+        <p>Operations Strategist & Quality Assurance Automation Engineer. I bridge the gap between business operations and technology by architecting zero-touch, enterprise-level automated ecosystems.</p>
         <a href="mailto:subham.chakraborty@cloud.com" class="contact-btn">Get In Touch</a>
     </header>
 
     <div class="container">
+        
+        <h2 class="section-title">Core Competencies</h2>
+        <div class="skills-container">
+            <div class="skill-badge"><span>⚡</span> Process Workflow Automation</div>
+            <div class="skill-badge"><span>📊</span> Looker Studio & Data Visualization</div>
+            <div class="skill-badge"><span>💻</span> JavaScript & Google Apps Script</div>
+            <div class="skill-badge"><span>🌐</span> HTML/CSS UI Development</div>
+            <div class="skill-badge"><span>📈</span> Quality Assurance Strategy</div>
+            <div class="skill-badge"><span>⚙️</span> API & Web App Integration</div>
+        </div>
+
         <h2 class="section-title">Featured Operational Automations</h2>
         <div class="grid">
             
@@ -58,7 +78,22 @@
                 <img src="command-center.png" alt="CSG Command Center" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">CSG Command Center</h3>
-                    <p class="card-desc">An enterprise Looker Studio dashboard synthesizing thousands of automated backend data points to provide leadership with real-time visibility into DSATs, Backlogs, and FDR/TDR performance.</p>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        Leadership lacked a centralized, real-time view of CSG operations. Data was siloed across multiple spreadsheets, causing high reporting latency and missed coaching opportunities.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Engineered an enterprise-grade Looker Studio BI dashboard that autonomously aggregates thousands of backend data points into interactive, drill-down visualizations.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Transforms raw numbers into strategic storytelling, enabling leadership to make instant, data-driven decisions regarding capacity planning and floor-level performance.
+                    </div>
+
                     <div class="tags">
                         <span class="tag">Looker Studio</span> 
                         <span class="tag">Business Intelligence</span>
@@ -70,7 +105,22 @@
                 <img src="audit-tool.png" alt="Backlog Audit Tracker" class="card-img">
                 <div class="card-content">
                     <h3 class="card-title">Backlog Audit & SLA Tracker</h3>
-                    <p class="card-desc">A closed-loop web app that dispatches corrective actions directly to agents and enforces a strict 5-hour resolution SLA with automated escalation triggers.</p>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        Backlog cases were aging due to a lack of immediate accountability. Quality errors in tickets lacked a strict, trackable timeline for agents to execute corrections.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Built a high-velocity, closed-loop web application that audits cases, dispatches specific corrective actions, and strictly enforces a 5-hour resolution SLA.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Directly drives down overall backlog volume and aging by ensuring "One-Touch" rapid corrections with automated escalation triggers to leadership.
+                    </div>
+
                     <div class="tags">
                         <span class="tag">JavaScript</span> 
                         <span class="tag">Google Apps Script</span> 
@@ -82,8 +132,23 @@
             <div class="card">
                 <img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img">
                 <div class="card-content">
-                    <h3 class="card-title">QA Huddle Dispatcher & Archive</h3>
-                    <p class="card-desc">An automated portal that pulls targeted errors, syncs attendance from Google Sheets, dispatches daily huddle summaries, and saves to a searchable digital archive.</p>
+                    <h3 class="card-title">QA Huddle Dispatcher</h3>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        Quality Analysts wasted extensive time manually preparing daily discussion pointers, and agents absent during huddles repeatedly missed critical process updates.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Developed an automated portal that pulls targeted errors, syncs attendance from Google Sheets, dispatches daily summaries, and saves to a searchable digital archive.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Recaptures significant QA prep time, standardizes coaching across all shifts, and provides a continuous learning hub for agents to self-serve missed huddle insights.
+                    </div>
+
                     <div class="tags">
                         <span class="tag">Web App</span> 
                         <span class="tag">Workflow Automation</span>
