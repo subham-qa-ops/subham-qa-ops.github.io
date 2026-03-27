@@ -28,7 +28,7 @@
         /* Skills Section */
         .skills-container { display: flex; flex-wrap: wrap; gap: 15px; margin-bottom: 60px; }
         .skill-badge { background: white; color: var(--navy); padding: 12px 20px; border-radius: 8px; font-weight: 600; border: 1px solid #CBD5E1; box-shadow: 0 2px 4px rgba(0,0,0,0.02); display: flex; align-items: center; gap: 8px; }
-        .skill-badge span { color: var(--blue); }
+        .skill-badge span { color: var(--blue); font-size: 18px; }
 
         /* Project Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(350px, 1fr)); gap: 40px; }
@@ -71,13 +71,13 @@
             <div class="skill-badge"><span>⚙️</span> API & Web App Integration</div>
         </div>
 
-        <h2 class="section-title">Featured Operational Automations</h2>
+        <h2 class="section-title">The Automation Ecosystem</h2>
         <div class="grid">
             
             <div class="card">
                 <img src="command-center.png" alt="CSG Command Center" class="card-img">
                 <div class="card-content">
-                    <h3 class="card-title">CSG Command Center</h3>
+                    <h3 class="card-title">01 | CSG Command Center</h3>
                     
                     <div class="card-text-block">
                         <strong>The Challenge</strong>
@@ -96,7 +96,62 @@
 
                     <div class="tags">
                         <span class="tag">Looker Studio</span> 
-                        <span class="tag">Business Intelligence</span>
+                        <span class="tag">Data Visualization</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="process-hub.png" alt="Process Knowledge Hub" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">02 | Process Knowledge Hub</h3>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        Process deviations are the top drivers of errors across core metrics (CSAT, EQ, FDR, TDR). Critical updates were getting lost in crowded email inboxes, allowing agents to claim ignorance.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Engineered a centralized, mandatory web portal where agents must log in to read updates, access KB articles, and digitally "Acknowledge" receipt of new procedures.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Creates a rigid, timestamped audit trail, entirely eliminating communication gaps, mitigating compliance risks, and ensuring 100% visibility of new processes.
+                    </div>
+
+                    <div class="tags">
+                        <span class="tag">Web App</span> 
+                        <span class="tag">UI/UX</span> 
+                        <span class="tag">Compliance</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">03 | QA Huddle Dispatcher</h3>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        Quality Analysts wasted extensive time manually preparing daily discussion pointers, and agents absent during huddles repeatedly missed critical process updates.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Developed an automated portal that pulls targeted errors, syncs attendance from Google Sheets, dispatches daily summaries, and saves to a searchable digital archive.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Recaptures significant QA prep time, standardizes coaching across all shifts, and provides a continuous learning hub for agents to self-serve missed huddle insights.
+                    </div>
+
+                    <div class="tags">
+                        <span class="tag">Web App</span> 
+                        <span class="tag">Workflow Automation</span>
                     </div>
                 </div>
             </div>
@@ -104,7 +159,7 @@
             <div class="card">
                 <img src="audit-tool.png" alt="Backlog Audit Tracker" class="card-img">
                 <div class="card-content">
-                    <h3 class="card-title">Backlog Audit & SLA Tracker</h3>
+                    <h3 class="card-title">04 | Backlog Audit & SLA Tracker</h3>
                     
                     <div class="card-text-block">
                         <strong>The Challenge</strong>
@@ -130,28 +185,56 @@
             </div>
 
             <div class="card">
-                <img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img">
+                <img src="governance-alerts.png" alt="Governance & Reporting Alerts" class="card-img">
                 <div class="card-content">
-                    <h3 class="card-title">QA Huddle Dispatcher</h3>
+                    <h3 class="card-title">05 | Governance & Reporting Alerts</h3>
                     
                     <div class="card-text-block">
                         <strong>The Challenge</strong>
-                        Quality Analysts wasted extensive time manually preparing daily discussion pointers, and agents absent during huddles repeatedly missed critical process updates.
+                        Chasing agents and managers to acknowledge quality feedback relied entirely on human memory and manual follow-ups, causing severe delays in the coaching lifecycle.
                     </div>
                     
                     <div class="card-text-block">
                         <strong>The Solution</strong>
-                        Developed an automated portal that pulls targeted errors, syncs attendance from Google Sheets, dispatches daily summaries, and saves to a searchable digital archive.
+                        Designed an automated accountability workflow for audits. When an audit is published, an automated email is dispatched, establishing a strict 48-Hour Acknowledgment SLA.
                     </div>
 
                     <div class="card-text-block">
                         <strong>Business Impact</strong>
-                        Recaptures significant QA prep time, standardizes coaching across all shifts, and provides a continuous learning hub for agents to self-serve missed huddle insights.
+                        Enforces rigid operational governance without QA manual intervention. Unacknowledged feedback autonomously triggers Escalation Emails directly to leadership.
                     </div>
 
                     <div class="tags">
-                        <span class="tag">Web App</span> 
-                        <span class="tag">Workflow Automation</span>
+                        <span class="tag">Server-side Triggers</span> 
+                        <span class="tag">Workflow Architecture</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="card">
+                <img src="data-parsers.png" alt="Intelligent Data Parsers" class="card-img">
+                <div class="card-content">
+                    <h3 class="card-title">06 | Intelligent Data Parsers</h3>
+                    
+                    <div class="card-text-block">
+                        <strong>The Challenge</strong>
+                        The QA team wasted 45-60 minutes daily downloading CSVs, mapping agent rosters, calculating complex resolution metrics manually, and collating DSAT/EQ scores from emails.
+                    </div>
+                    
+                    <div class="card-text-block">
+                        <strong>The Solution</strong>
+                        Built a backend processing engine that autonomously scans system reports and email traffic, instantly mapping data to the roster and writing it to the master database.
+                    </div>
+
+                    <div class="card-text-block">
+                        <strong>Business Impact</strong>
+                        Eliminates human calculation errors entirely with 100% precision. Recaptures 40+ hours monthly and enables "Golden Hour" service recovery for negative DSATs.
+                    </div>
+
+                    <div class="tags">
+                        <span class="tag">Data Parsing</span> 
+                        <span class="tag">ETL Processing</span> 
+                        <span class="tag">Automation</span>
                     </div>
                 </div>
             </div>
