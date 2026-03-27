@@ -3,191 +3,212 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Subham Chakraborty | QA Automation Architect</title>
-    <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@500;700;800&family=Open+Sans:wght@400;600&display=swap" rel="stylesheet">
+    <title>Subham Chakraborty | QA & Operations Architect</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&family=Montserrat:wght@700;800;900&display=swap" rel="stylesheet">
     <style>
         :root {
-            --navy: #002244; 
-            --navy-light: #0A3663;
-            --blue: #007CC3; 
-            --blue-glow: rgba(0, 124, 195, 0.3);
-            --bg-page: #F4F7F9; 
-            --white: #FFFFFF;
-            --text-dark: #1A202C;
-            --text-slate: #4A5568;
-            --border: #E2E8F0;
+            --bg-base: #050B14;
+            --bg-surface: #0A1325;
+            --bg-card: #111C33;
+            --accent-blue: #007CC3;
+            --accent-glow: #00E5FF;
+            --text-main: #F8FAFC;
+            --text-muted: #94A3B8;
+            --border-subtle: rgba(255, 255, 255, 0.08);
         }
 
-        * { box-sizing: border-box; }
-        html { scroll-behavior: smooth; }
-        body { font-family: 'Open Sans', sans-serif; margin: 0; padding: 0; background-color: var(--bg-page); color: var(--text-dark); overflow-x: hidden; }
+        * { box-sizing: border-box; scroll-behavior: smooth; }
+        body { font-family: 'Inter', sans-serif; margin: 0; padding: 0; background-color: var(--bg-base); color: var(--text-main); overflow-x: hidden; line-height: 1.6; }
         
-        /* Smooth Fade-in Animation */
-        @keyframes fadeInUp {
-            from { opacity: 0; transform: translateY(30px); }
-            to { opacity: 1; transform: translateY(0); }
-        }
+        /* Animations */
+        @keyframes fadeUp { from { opacity: 0; transform: translateY(40px); } to { opacity: 1; transform: translateY(0); } }
+        .animate { animation: fadeUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards; opacity: 0; }
+        .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; }
 
-        .animate-up { animation: fadeInUp 0.8s ease-out forwards; }
-
-        /* Sticky Navigation */
-        nav { position: fixed; top: 0; width: 100%; background: rgba(0, 34, 68, 0.95); backdrop-filter: blur(10px); padding: 15px 40px; z-index: 1000; display: flex; justify-content: space-between; align-items: center; box-shadow: 0 4px 20px rgba(0,0,0,0.1); }
-        .nav-logo { color: var(--white); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 20px; text-decoration: none; letter-spacing: 1px; }
-        .nav-logo span { color: var(--blue); }
-        .nav-links a { color: #A0C4DF; text-decoration: none; margin-left: 30px; font-weight: 600; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
-        .nav-links a:hover { color: var(--white); }
+        /* Premium Navigation */
+        nav { position: fixed; top: 0; width: 100%; background: rgba(5, 11, 20, 0.85); backdrop-filter: blur(16px); -webkit-backdrop-filter: blur(16px); padding: 20px 50px; z-index: 1000; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
+        .nav-logo { color: var(--text-main); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-decoration: none; letter-spacing: -0.5px; }
+        .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 40px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
+        .nav-links a:hover { color: var(--accent-glow); }
 
         /* Hero Section */
-        header { background: linear-gradient(135deg, var(--navy) 0%, var(--navy-light) 100%); color: var(--white); padding: 160px 20px 100px; text-align: center; position: relative; }
-        header::after { content: ''; position: absolute; bottom: 0; left: 0; width: 100%; height: 50px; background: var(--bg-page); clip-path: polygon(0 100%, 100% 100%, 100% 0); }
-        header h1 { font-family: 'Montserrat', sans-serif; font-size: 52px; margin: 0 0 20px; letter-spacing: -0.5px; font-weight: 800; }
-        header p { font-size: 20px; color: #A0C4DF; max-width: 800px; margin: 0 auto 35px; line-height: 1.7; font-weight: 400; }
-        .contact-btn { display: inline-block; padding: 15px 35px; background-color: var(--blue); color: var(--white); text-decoration: none; font-weight: 700; border-radius: 8px; transition: all 0.3s; font-family: 'Montserrat', sans-serif; text-transform: uppercase; letter-spacing: 1px; box-shadow: 0 10px 25px var(--blue-glow); }
-        .contact-btn:hover { background-color: var(--white); color: var(--navy); box-shadow: 0 10px 25px rgba(255,255,255,0.2); transform: translateY(-2px); }
+        header { min-height: 100vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; padding: 0 20px; position: relative; overflow: hidden; }
+        
+        /* Background Glow Effect */
+        header::before { content: ''; position: absolute; top: -20%; left: 50%; transform: translateX(-50%); width: 800px; height: 800px; background: radial-gradient(circle, rgba(0,229,255,0.15) 0%, rgba(5,11,20,0) 70%); z-index: -1; }
 
-        /* Floating Metrics Bar */
-        .metrics-container { max-width: 1000px; margin: -60px auto 60px; display: flex; justify-content: space-between; gap: 20px; position: relative; z-index: 10; padding: 0 20px; }
-        .metric-card { background: var(--white); padding: 25px; border-radius: 12px; flex: 1; text-align: center; box-shadow: 0 15px 35px rgba(0,34,68,0.08); border: 1px solid var(--border); transition: 0.3s; }
-        .metric-card:hover { transform: translateY(-5px); border-color: var(--blue); }
-        .metric-number { font-family: 'Montserrat', sans-serif; font-size: 32px; color: var(--blue); font-weight: 800; margin-bottom: 5px; }
-        .metric-label { font-size: 13px; color: var(--text-slate); font-weight: 600; text-transform: uppercase; letter-spacing: 1px; }
+        .gradient-text { background: linear-gradient(135deg, var(--accent-blue) 0%, var(--accent-glow) 100%); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
+        
+        header h2 { font-family: 'Inter', sans-serif; font-weight: 600; font-size: 16px; color: var(--accent-glow); text-transform: uppercase; letter-spacing: 4px; margin-bottom: 20px; }
+        header h1 { font-family: 'Montserrat', sans-serif; font-size: 72px; margin: 0 0 30px; line-height: 1.1; letter-spacing: -2px; font-weight: 900; }
+        header p { font-size: 20px; color: var(--text-muted); max-width: 750px; margin: 0 auto 50px; font-weight: 300; }
+        
+        .btn-primary { background: linear-gradient(135deg, var(--accent-blue) 0%, #0099FF 100%); color: #FFF; padding: 18px 45px; text-decoration: none; font-family: 'Montserrat', sans-serif; font-weight: 700; font-size: 14px; text-transform: uppercase; letter-spacing: 1.5px; border-radius: 50px; transition: all 0.4s; box-shadow: 0 10px 30px rgba(0, 124, 195, 0.3); border: 1px solid rgba(255,255,255,0.1); }
+        .btn-primary:hover { transform: translateY(-3px); box-shadow: 0 15px 40px rgba(0, 229, 255, 0.4); }
 
-        .container { max-width: 1250px; margin: 0 auto 80px; padding: 0 20px; }
-        .section-header { text-align: center; margin-bottom: 50px; }
-        .section-title { font-family: 'Montserrat', sans-serif; font-size: 36px; color: var(--navy); margin: 0 0 15px; font-weight: 800; letter-spacing: -0.5px; }
-        .section-line { width: 60px; height: 4px; background: var(--blue); margin: 0 auto; border-radius: 2px; }
+        /* Impact Ribbon */
+        .impact-ribbon { display: flex; justify-content: center; gap: 60px; padding: 50px 20px; background: var(--bg-surface); border-top: 1px solid var(--border-subtle); border-bottom: 1px solid var(--border-subtle); flex-wrap: wrap; }
+        .impact-stat { text-align: center; }
+        .impact-stat h3 { font-family: 'Montserrat', sans-serif; font-size: 42px; margin: 0; color: var(--text-main); font-weight: 800; }
+        .impact-stat p { margin: 5px 0 0; color: var(--accent-glow); font-size: 13px; text-transform: uppercase; letter-spacing: 1px; font-weight: 600; }
 
-        /* Categorized Skills */
-        .skills-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; margin-bottom: 80px; }
-        .skill-category { background: var(--white); padding: 30px; border-radius: 12px; box-shadow: 0 10px 30px rgba(0,0,0,0.03); border: 1px solid var(--border); }
-        .skill-category h3 { font-family: 'Montserrat', sans-serif; color: var(--navy); margin-top: 0; border-bottom: 2px solid var(--bg-page); padding-bottom: 10px; font-size: 18px; }
-        .skill-list { list-style: none; padding: 0; margin: 0; }
-        .skill-list li { margin-bottom: 12px; font-size: 15px; color: var(--text-slate); display: flex; align-items: center; font-weight: 600; }
-        .skill-list li::before { content: '▹'; color: var(--blue); font-size: 20px; margin-right: 10px; font-weight: bold; }
+        .container { max-width: 1300px; margin: 0 auto; padding: 120px 20px; }
+        
+        .section-header { margin-bottom: 70px; }
+        .section-header h2 { font-family: 'Montserrat', sans-serif; font-size: 48px; margin: 0 0 15px; font-weight: 900; letter-spacing: -1px; }
+        .section-header p { font-size: 18px; color: var(--text-muted); max-width: 600px; margin: 0; }
 
-        /* Premium Project Grid */
-        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(380px, 1fr)); gap: 40px; }
-        
-        .card { background: var(--white); border-radius: 16px; overflow: hidden; box-shadow: 0 15px 35px rgba(0,34,68,0.05); transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275); border: 1px solid var(--border); display: flex; flex-direction: column; }
-        .card:hover { transform: translateY(-10px); box-shadow: 0 25px 50px rgba(0,34,68,0.15); }
-        
-        .card-img-wrapper { background: #E2E8F0; padding: 20px; display: flex; justify-content: center; border-bottom: 1px solid var(--border); }
-        .card-img { width: 100%; height: 220px; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 20px rgba(0,0,0,0.08); background: var(--white); }
-        
-        .card-content { padding: 35px 30px; flex-grow: 1; display: flex; flex-direction: column; }
-        .card-header { display: flex; justify-content: space-between; align-items: flex-start; margin-bottom: 25px; }
-        .card-title { font-family: 'Montserrat', sans-serif; font-size: 22px; color: var(--navy); margin: 0; font-weight: 700; }
-        
-        .impact-box { background: rgba(39, 174, 96, 0.1); border-left: 3px solid #27AE60; padding: 15px; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
-        .impact-box strong { display: block; color: #166534; font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; margin-bottom: 5px; }
-        .impact-box p { margin: 0; font-size: 13.5px; color: var(--text-dark); font-weight: 600; line-height: 1.5; }
+        /* The QA Story (Methodology) */
+        .story-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 30px; }
+        .story-card { background: var(--bg-card); padding: 40px; border-radius: 16px; border: 1px solid var(--border-subtle); transition: 0.4s; position: relative; overflow: hidden; }
+        .story-card:hover { border-color: var(--accent-glow); transform: translateY(-5px); }
+        .story-card::before { content: ''; position: absolute; top: 0; left: 0; width: 4px; height: 100%; background: var(--accent-glow); opacity: 0; transition: 0.4s; }
+        .story-card:hover::before { opacity: 1; }
+        .story-icon { font-size: 32px; margin-bottom: 20px; display: block; }
+        .story-card h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; margin: 0 0 15px; }
+        .story-card p { color: var(--text-muted); font-size: 15px; margin: 0; }
 
-        .card-text-block { margin-bottom: 15px; font-size: 14px; line-height: 1.7; color: var(--text-slate); }
-        .card-text-block strong { color: var(--navy); font-family: 'Montserrat', sans-serif; font-size: 12px; text-transform: uppercase; letter-spacing: 0.5px; display: inline-block; width: 85px; }
+        /* Skills/Expertise Badges */
+        .expertise-wrapper { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 40px; }
+        .exp-badge { background: rgba(255,255,255,0.03); border: 1px solid var(--border-subtle); color: var(--text-main); padding: 10px 20px; border-radius: 30px; font-size: 13px; font-weight: 600; letter-spacing: 0.5px; transition: 0.3s; }
+        .exp-badge:hover { background: rgba(0, 229, 255, 0.1); border-color: var(--accent-glow); color: var(--accent-glow); }
+
+        /* Premium Ecosystem Grid */
+        .project-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(400px, 1fr)); gap: 40px; }
         
-        .tags { margin-top: auto; padding-top: 25px; border-top: 1px solid var(--border); display: flex; flex-wrap: wrap; gap: 8px; }
-        .tag { background: rgba(0, 124, 195, 0.08); color: var(--blue); padding: 6px 14px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; border: 1px solid rgba(0, 124, 195, 0.2); }
+        .card { background: var(--bg-card); border-radius: 20px; overflow: hidden; border: 1px solid var(--border-subtle); display: flex; flex-direction: column; transition: all 0.5s cubic-bezier(0.2, 0.8, 0.2, 1); }
+        .card:hover { transform: translateY(-12px); box-shadow: 0 30px 60px rgba(0, 0, 0, 0.4), 0 0 20px rgba(0, 229, 255, 0.1); border-color: rgba(0, 229, 255, 0.3); }
         
-        footer { text-align: center; padding: 40px 20px; background: var(--navy); color: #A0C4DF; font-size: 14px; margin-top: auto; border-top: 5px solid var(--blue); }
-        footer strong { color: var(--white); font-family: 'Montserrat', sans-serif; letter-spacing: 1px; }
+        .card-img-wrapper { background: #E2E8F0; padding: 25px; display: flex; justify-content: center; align-items: center; border-bottom: 1px solid var(--border-subtle); }
+        .card-img { width: 100%; height: 240px; object-fit: contain; border-radius: 8px; box-shadow: 0 10px 25px rgba(0,0,0,0.1); background: #FFF; }
+        
+        .card-content { padding: 40px; flex-grow: 1; display: flex; flex-direction: column; }
+        .card-title { font-family: 'Montserrat', sans-serif; font-size: 24px; margin: 0 0 25px; font-weight: 800; }
+        
+        .impact-box { background: rgba(0, 229, 255, 0.05); border-left: 3px solid var(--accent-glow); padding: 20px; margin-bottom: 25px; border-radius: 0 8px 8px 0; }
+        .impact-box strong { display: block; color: var(--accent-glow); font-family: 'Montserrat', sans-serif; font-size: 11px; text-transform: uppercase; letter-spacing: 1.5px; margin-bottom: 8px; }
+        .impact-box p { margin: 0; font-size: 14px; font-weight: 600; color: var(--text-main); }
+
+        .card-desc { font-size: 14px; color: var(--text-muted); margin-bottom: 20px; }
+        .card-desc strong { color: #FFF; font-weight: 600; }
+        
+        .tags { margin-top: auto; padding-top: 25px; border-top: 1px solid var(--border-subtle); display: flex; flex-wrap: wrap; gap: 10px; }
+        .tag { background: rgba(255,255,255,0.05); color: var(--text-muted); padding: 6px 16px; border-radius: 20px; font-size: 11px; font-weight: 700; letter-spacing: 0.5px; border: 1px solid var(--border-subtle); }
+
+        /* Career Timeline */
+        .timeline { border-left: 2px solid var(--border-subtle); padding-left: 40px; margin-top: 50px; }
+        .timeline-item { position: relative; margin-bottom: 50px; }
+        .timeline-item::before { content: ''; position: absolute; left: -47px; top: 5px; width: 12px; height: 12px; border-radius: 50%; background: var(--accent-glow); box-shadow: 0 0 10px var(--accent-glow); }
+        .timeline-item h3 { font-family: 'Montserrat', sans-serif; font-size: 22px; margin: 0 0 5px; }
+        .timeline-item h4 { color: var(--accent-blue); font-size: 16px; font-weight: 600; margin: 0 0 15px; }
+        .timeline-item p { color: var(--text-muted); font-size: 15px; margin: 0; max-width: 800px; }
+
+        footer { text-align: center; padding: 50px 20px; background: var(--bg-surface); color: var(--text-muted); font-size: 14px; border-top: 1px solid var(--border-subtle); }
+        footer span { color: var(--accent-glow); font-family: 'Montserrat', sans-serif; font-weight: 700; }
 
         @media (max-width: 768px) {
-            header h1 { font-size: 36px; }
-            .metrics-container { flex-direction: column; margin-top: -30px; }
+            header h1 { font-size: 48px; }
+            .impact-ribbon { flex-direction: column; gap: 30px; }
             .nav-links { display: none; }
+            .card-img { height: 180px; }
         }
     </style>
 </head>
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">Subham<span>.QA</span></a>
+        <a href="#" class="nav-logo">Subham Chakraborty</a>
         <div class="nav-links">
-            <a href="#about">About</a>
-            <a href="#expertise">Expertise</a>
-            <a href="#portfolio">Ecosystem</a>
+            <a href="#philosophy">Methodology</a>
+            <a href="#ecosystem">Automations</a>
+            <a href="#career">Career Impact</a>
             <a href="mailto:subham.chakraborty@cloud.com">Contact</a>
         </div>
     </nav>
 
-    <header id="about">
-        <div class="animate-up">
-            <h1>Architecting Zero-Touch<br>Enterprise Ecosystems</h1>
-            <p>I bridge the gap between business operations and technology. By developing intelligent automations, bespoke web apps, and BI dashboards, I transform manual QA processes into high-velocity, error-free digital infrastructures.</p>
-            <a href="#portfolio" class="contact-btn">View My Ecosystem</a>
+    <header>
+        <div class="animate">
+            <h2>Operations Strategist & QA Architect</h2>
+            <h1>I engineer <span class="gradient-text">Zero-Touch</span><br>ecosystems.</h1>
+            <p>I bridge the gap between process excellence and technology. By fusing Six Sigma RCA with Google Apps Script and BI, I transform Quality Assurance from a reactive metric into a proactive, automated business driver.</p>
+            <a href="#ecosystem" class="btn-primary">Explore The Ecosystem</a>
         </div>
     </header>
 
-    <div class="metrics-container animate-up" style="animation-delay: 0.2s;">
-        <div class="metric-card">
-            <div class="metric-number">40+</div>
-            <div class="metric-label">Hours Recaptured Monthly</div>
+    <div class="impact-ribbon animate delay-1">
+        <div class="impact-stat">
+            <h3>7+</h3>
+            <p>Years QA & Ops Experience</p>
         </div>
-        <div class="metric-card">
-            <div class="metric-number">100%</div>
-            <div class="metric-label">Data Calculation Precision</div>
+        <div class="impact-stat">
+            <h3>₹1.7 Cr</h3>
+            <p>Saved via Process Redesign</p>
         </div>
-        <div class="metric-card">
-            <div class="metric-number">5-Hr</div>
-            <div class="metric-label">Resolution SLA Enforced</div>
+        <div class="impact-stat">
+            <h3>26%</h3>
+            <p>Highest NPS Improvement</p>
+        </div>
+        <div class="impact-stat">
+            <h3>100%</h3>
+            <p>Data Precision Scaled</p>
         </div>
     </div>
 
-    <div class="container" id="expertise">
-        <div class="section-header animate-up">
-            <h2 class="section-title">Technical Expertise</h2>
-            <div class="section-line"></div>
+    <div class="container" id="philosophy">
+        <div class="section-header animate">
+            <h2>The Quality Engineering Mindset</h2>
+            <p>True operational excellence isn't just finding errors—it's building the systemic architecture that prevents them from ever happening again.</p>
         </div>
 
-        <div class="skills-grid animate-up">
-            <div class="skill-category">
-                <h3>Engineering & Logic</h3>
-                <ul class="skill-list">
-                    <li>JavaScript (ES6+)</li>
-                    <li>Google Apps Script (GAS)</li>
-                    <li>HTML5 & CSS3</li>
-                    <li>API Integrations</li>
-                </ul>
+        <div class="story-grid animate delay-1">
+            <div class="story-card">
+                <span class="story-icon">🔍</span>
+                <h3>1. Root Cause (RCA)</h3>
+                <p>Leveraging Six Sigma and deep data analysis to trace NPS, CSAT, and operational drops to their origin point, identifying the exact process deviations.</p>
             </div>
-            <div class="skill-category">
-                <h3>Data & Intelligence</h3>
-                <ul class="skill-list">
-                    <li>Looker Studio (BI)</li>
-                    <li>Data Extraction & Parsing</li>
-                    <li>ETL Pipeline Construction</li>
-                    <li>Real-time Visualization</li>
-                </ul>
+            <div class="story-card">
+                <span class="story-icon">📐</span>
+                <h3>2. Process Architecture</h3>
+                <p>Redesigning the workflow to eliminate ambiguity. Conducting impact assessments to ensure the solution reduces customer effort and drives lean delivery.</p>
             </div>
-            <div class="skill-category">
-                <h3>Operations Strategy</h3>
-                <ul class="skill-list">
-                    <li>Workflow Automation</li>
-                    <li>SLA Enforcement Systems</li>
-                    <li>UI/UX for Internal Tools</li>
-                    <li>Quality Assurance Governance</li>
-                </ul>
+            <div class="story-card">
+                <span class="story-icon">⚙️</span>
+                <h3>3. Digital Automation</h3>
+                <p>Deploying JavaScript, Apps Script, and BI dashboards to hardcode the new process—removing human dependency and establishing strict SLA governance.</p>
             </div>
         </div>
 
-        <div class="section-header animate-up" id="portfolio">
-            <h2 class="section-title">The Automation Portfolio</h2>
-            <div class="section-line"></div>
+        <div class="expertise-wrapper animate delay-2">
+            <div class="exp-badge">Six Sigma Methodologies</div>
+            <div class="exp-badge">Root Cause Analysis (RCA)</div>
+            <div class="exp-badge">NPS & CSAT Optimization</div>
+            <div class="exp-badge">Google Apps Script (JS)</div>
+            <div class="exp-badge">Looker Studio / Power BI</div>
+            <div class="exp-badge">Lean Impact Assessment</div>
+            <div class="exp-badge">HTML/CSS UI Development</div>
+        </div>
+    </div>
+
+    <div class="container" id="ecosystem">
+        <div class="section-header animate">
+            <h2>The Automation Ecosystem</h2>
+            <p>A portfolio of bespoke internal tools built to enforce compliance, eradicate manual effort, and drive absolute data visibility.</p>
         </div>
 
         <div class="project-grid">
             
-            <div class="card animate-up">
+            <div class="card animate">
                 <div class="card-img-wrapper"><img src="command-center.png" alt="CSG Command Center" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">01 | CSG Command Center</h3></div>
+                    <h3 class="card-title">01 | CSG Command Center</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
                         <p>Provides leadership with "Anytime, Anywhere" drill-down visibility into floor-level metrics.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> Data was siloed across spreadsheets, causing reporting latency and missed coaching opportunities.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> Engineered an enterprise Looker Studio BI dashboard aggregating thousands of automated backend data points.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> Data was siloed across spreadsheets, causing reporting latency and missed coaching opportunities.</div>
+                    <div class="card-desc"><strong>Solution:</strong> Engineered an enterprise Looker Studio BI dashboard aggregating thousands of automated backend data points for real-time FDR/TDR tracking.</div>
 
                     <div class="tags">
                         <span class="tag">Looker Studio</span> <span class="tag">Business Intelligence</span> <span class="tag">Data Viz</span>
@@ -195,56 +216,56 @@
                 </div>
             </div>
 
-            <div class="card animate-up" style="animation-delay: 0.1s;">
+            <div class="card animate delay-1">
                 <div class="card-img-wrapper"><img src="process-hub.png" alt="Process Knowledge Hub" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">02 | Knowledge Hub</h3></div>
+                    <h3 class="card-title">02 | Process Knowledge Hub</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
                         <p>Ensures 100% floor-wide visibility of process changes with timestamped digital audit trails.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> Critical updates were lost in emails, allowing agents to claim ignorance and driving severe quality errors.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> Built a mandatory web portal where agents must securely log in to read and digitally "Acknowledge" updates.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> RCA revealed process deviations as the top driver of errors. Critical updates were lost in emails, allowing agents to claim ignorance.</div>
+                    <div class="card-desc"><strong>Solution:</strong> Built a mandatory web portal where agents must securely log in to read and digitally "Acknowledge" updates.</div>
 
                     <div class="tags">
-                        <span class="tag">Web App</span> <span class="tag">UI/UX</span> <span class="tag">Compliance</span>
+                        <span class="tag">Web App</span> <span class="tag">UI/UX</span> <span class="tag">Compliance Tech</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card animate-up" style="animation-delay: 0.2s;">
+            <div class="card animate">
                 <div class="card-img-wrapper"><img src="huddle-portal.png" alt="QA Huddle Portal" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">03 | Huddle Dispatcher</h3></div>
+                    <h3 class="card-title">03 | QA Huddle Dispatcher</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
                         <p>Recaptures QA prep time and allows absent agents to self-serve missed huddle insights.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> Manual prep was tedious, and agents absent during huddles repeatedly missed critical performance insights.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> An automated portal that compiles targeted errors, syncs attendance, and archives summaries digitally.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> Manual prep was tedious, and agents absent during huddles repeatedly missed critical performance insights.</div>
+                    <div class="card-desc"><strong>Solution:</strong> An automated portal that compiles targeted errors, syncs attendance from Sheets, and archives summaries digitally.</div>
 
                     <div class="tags">
-                        <span class="tag">Google Apps Script</span> <span class="tag">Workflow Automation</span>
+                        <span class="tag">Apps Script</span> <span class="tag">Workflow Automation</span>
                     </div>
                 </div>
             </div>
 
-            <div class="card animate-up">
+            <div class="card animate delay-1">
                 <div class="card-img-wrapper"><img src="audit-tool.png" alt="Backlog Audit Tracker" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">04 | SLA Tracker</h3></div>
+                    <h3 class="card-title">04 | 5-Hour SLA Tracker</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
                         <p>Drives down backlog volume and aging by ensuring "One-Touch" rapid corrections.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> Aging backlog cases lacked immediate accountability and strict timelines for agent corrections.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> A closed-loop app that dispatches actions directly to agents and enforces a strict 5-hour resolution SLA.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> Aging backlog cases lacked immediate accountability and strict timelines for agent corrections post-audit.</div>
+                    <div class="card-desc"><strong>Solution:</strong> A closed-loop web app that dispatches actions directly to agents and enforces a strict 5-hour resolution SLA.</div>
 
                     <div class="tags">
                         <span class="tag">JavaScript</span> <span class="tag">HTML/CSS</span> <span class="tag">Escalation Logic</span>
@@ -252,18 +273,18 @@
                 </div>
             </div>
 
-            <div class="card animate-up" style="animation-delay: 0.1s;">
+            <div class="card animate">
                 <div class="card-img-wrapper"><img src="governance-alerts.png" alt="Governance Alerts" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">05 | Governance Alerts</h3></div>
+                    <h3 class="card-title">05 | Governance Alerts</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
                         <p>Enforces a strict 48-Hour Acknowledgment SLA without manual QA intervention.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> Chasing feedback acknowledgments relied on human memory, causing severe delays in coaching.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> Server-side triggers that autonomously dispatch emails and escalate to leadership if ignored past 48 hours.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> Chasing feedback acknowledgments relied on human memory, causing severe delays in the coaching lifecycle.</div>
+                    <div class="card-desc"><strong>Solution:</strong> Server-side triggers that autonomously dispatch emails and escalate to leadership if ignored past 48 hours.</div>
 
                     <div class="tags">
                         <span class="tag">Server Triggers</span> <span class="tag">System Architecture</span>
@@ -271,18 +292,18 @@
                 </div>
             </div>
 
-            <div class="card animate-up" style="animation-delay: 0.2s;">
+            <div class="card animate delay-1">
                 <div class="card-img-wrapper"><img src="data-parsers.png" alt="Data Parsers" class="card-img"></div>
                 <div class="card-content">
-                    <div class="card-header"><h3 class="card-title">06 | Data Parsers</h3></div>
+                    <h3 class="card-title">06 | Intelligent Data Parsers</h3>
                     
                     <div class="impact-box">
                         <strong>Measurable Impact</strong>
-                        <p>Eliminates calculation errors and enables "Golden Hour" service recovery for DSATs.</p>
+                        <p>Eliminates calculation errors entirely and enables "Golden Hour" service recovery for DSATs.</p>
                     </div>
 
-                    <div class="card-text-block"><strong>Challenge:</strong> QA wasted 60 mins daily mapping rosters and calculating complex FDR/TDR and DSAT metrics manually.</div>
-                    <div class="card-text-block"><strong>Solution:</strong> An extraction engine that scans logs/emails, maps data, and writes to the master database instantly.</div>
+                    <div class="card-desc"><strong>Challenge:</strong> QA wasted hours daily mapping rosters and calculating complex FDR/TDR and DSAT metrics manually.</div>
+                    <div class="card-desc"><strong>Solution:</strong> An extraction engine that scans logs and emails, maps data, and writes to the master database instantly.</div>
 
                     <div class="tags">
                         <span class="tag">ETL Pipeline</span> <span class="tag">Data Extraction</span>
@@ -293,8 +314,38 @@
         </div>
     </div>
 
+    <div class="container" id="career">
+        <div class="section-header animate">
+            <h2>Career Milestones</h2>
+            <p>A proven track record of elevating global operations across e-commerce, fintech, and IT services.</p>
+        </div>
+
+        <div class="timeline animate delay-1">
+            <div class="timeline-item">
+                <h3>Infosys BPM | Assistant Manager (Quality & Process Improvement)</h3>
+                <h4>2024 - Present</h4>
+                <p>Formulated automation strategies for EMEA, APAC, and AMER regions. Boosted First Day Resolution (FDR) from 68% to 79% within 2 months. Created dynamic leadership dashboards for a team of 80+, reducing closure times by 26%.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Myntra Designs | Assistant Manager (Quality)</h3>
+                <h4>2021 - 2024</h4>
+                <p>Partnered with Finance leaders to redesign the Seller Protection Fund policy, resulting in ₹1.7 Crores in savings. Leveraged Six Sigma to analyze NPS data, driving a 26% increase in scores and restructuring the audit framework for 22% improved operational effectiveness.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Paytm | Senior Quality Associate</h3>
+                <h4>2020 - 2021</h4>
+                <p>Standardized practices and automated email support processes, leading to a 42% increase in productivity through BOT responses. Improved overall CSAT scores by 14% within 3 months.</p>
+            </div>
+            <div class="timeline-item">
+                <h3>Meesho | Quality Analyst</h3>
+                <h4>2018 - 2020</h4>
+                <p>Executed key projects driving a 37% increase in CS quality and a 21% boost in NPS. Awarded Best Performer four times for outstanding contributions to process improvements.</p>
+            </div>
+        </div>
+    </div>
+
     <footer>
-        <p>&copy; 2026 <strong>Subham Chakraborty</strong> | Built for scale, designed for impact.</p>
+        <p>&copy; 2026 <span>Subham Chakraborty</span> | Orchestrating Quality. Engineering Efficiency.</p>
     </footer>
 
 </body>
