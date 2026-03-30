@@ -378,13 +378,15 @@
                 <div class="term-title">subham@operations-architect: ~</div>
             </div>
             <div class="term-body">
-                <p>> Initiating AI Interview Module...</p>
+                <p>> Initiating Executive AI Interview Module...</p>
                 <p>> Select a query below to execute:</p>
                 
                 <div class="term-options">
-                    <button onclick="typeAnswer(1)">[1] What is your leadership style?</button>
-                    <button onclick="typeAnswer(2)">[2] How do you handle pushback from operations?</button>
-                    <button onclick="typeAnswer(3)">[3] Why AI-assisted development over traditional coding?</button>
+                    <button onclick="typeAnswer(1)">[1] How do you define Quality in modern operations?</button>
+                    <button onclick="typeAnswer(2)">[2] Can you explain the ₹1.7 Cr savings at Myntra?</button>
+                    <button onclick="typeAnswer(3)">[3] What is your strategy for improving FDR and NPS?</button>
+                    <button onclick="typeAnswer(4)">[4] How do you drive adoption for your automated tools?</button>
+                    <button onclick="typeAnswer(5)">[5] Why AI-assisted development over traditional coding?</button>
                 </div>
                 
                 <div class="term-output"><span id="typeTarget"></span><span class="cursor"></span></div>
@@ -409,20 +411,26 @@
         function openModal(id) { document.getElementById(id).classList.add('active'); }
         function closeModal(id) { 
             document.getElementById(id).classList.remove('active'); 
-            if(id === 'termModal') document.getElementById('typeTarget').innerHTML = ''; // Reset terminal on close
+            if(id === 'termModal') document.getElementById('typeTarget').innerHTML = ''; 
         }
         function closeOutside(e, id) { if(e.target.classList.contains('modal-overlay')) closeModal(id); }
         
         // Terminal Typewriter Logic
         const answers = {
-            1: "\n> EXECUTING QUERY: Leadership Style\n\nI practice Servant Leadership combined with strict operational governance. I believe my primary job is to remove systemic roadblocks so my team can focus on execution. I rely on data—not opinions—to drive performance, and I build automations to handle the tedious work so my analysts can focus on high-level strategic coaching.\n\n> Awaiting next query...",
-            2: "\n> EXECUTING QUERY: Handling Pushback\n\nOperations teams generally push back when they feel a new process will slow them down. I counter this by co-creating the solution with them. If I can build an automation that saves an agent 2 hours a day while simultaneously enforcing compliance, pushback instantly turns into widespread adoption.\n\n> Awaiting next query...",
-            3: "\n> EXECUTING QUERY: AI-Assisted Development\n\nThe business does not pay for code; it pays for solved problems. By identifying the exact business logic required and leveraging AI to write the syntax, I collapse the development cycle from months to days. This allows me to deploy enterprise-grade, ROI-positive tools at unprecedented speed.\n\n> Awaiting next query..."
+            1: "\n> EXECUTING QUERY: Defining Quality\n\nQuality is no longer just a scorecard or a retrospective compliance check; it is a product. Traditional QA catches errors after they happen. I use Six Sigma RCA to identify the leak, and then engineer 'Zero-Touch' ecosystems that prevent the error from occurring in the first place through hardcoded governance and workflow automation.\n\n> Awaiting next query...",
+            
+            2: "\n> EXECUTING QUERY: Myntra ₹1.7 Cr Impact\n\nWe had an inefficient Seller Protection Fund policy causing massive revenue bleed. I used the Six Sigma DMAIC framework to trace the root cause. By partnering with Finance to rewrite the payout governance and hardcoding strict audit checkpoints, we stopped the bleed, protected ₹1.7 Crores, and simultaneously boosted valid Seller NPS.\n\n> Awaiting next query...",
+            
+            3: "\n> EXECUTING QUERY: Improving FDR & NPS\n\nData visibility is step one. At Infosys, I deployed automated Looker Studio dashboards to expose bottlenecks in real-time to leadership. Once the data is visible, I use RCA to redesign the broken process loop. This exact methodology boosted First Day Resolution (FDR) from 68% to 79% in just 2 months.\n\n> Awaiting next query...",
+            
+            4: "\n> EXECUTING QUERY: Driving Tool Adoption\n\nOperations teams push back when a new process slows them down. I counter this by co-creating the solution with them. If I can build an automation that saves an agent 2 hours a day while simultaneously enforcing compliance, pushback instantly turns into widespread adoption.\n\n> Awaiting next query...",
+            
+            5: "\n> EXECUTING QUERY: AI-Assisted Development\n\nThe business does not pay for code; it pays for solved problems. By defining the exact business logic and leveraging AI to write the syntax, I collapse the development cycle from months to days. This allows me to deploy enterprise-grade, ROI-positive tools at unprecedented speed.\n\n> Awaiting next query..."
         };
 
         let i = 0;
         let txt = '';
-        let typeSpeed = 15; // milliseconds per character
+        let typeSpeed = 15; 
         let isTyping = false;
 
         function typeWriter() {
@@ -436,7 +444,7 @@
         }
 
         function typeAnswer(id) {
-            if(isTyping) return; // Prevent clicking multiple while typing
+            if(isTyping) return; 
             isTyping = true;
             document.getElementById('typeTarget').innerHTML = '';
             txt = answers[id];
