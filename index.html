@@ -5,6 +5,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Subham Chakraborty | QA & Operations Architect</title>
     
+    <meta property="og:title" content="Subham Chakraborty | QA & Operations Architect">
+    <meta property="og:description" content="Architecting Zero-Touch Enterprise Ecosystems. View my interactive automation portfolio and ROI calculator.">
+    <meta property="og:image" content="https://subham-qa-ops.github.io/command-center.png">
+    <meta property="og:url" content="https://subham-qa-ops.github.io/">
+    <meta name="twitter:card" content="summary_large_image">
+
     <script async src="https://www.googletagmanager.com/gtag/js?id=G-6NN2BJ4XT3"></script>
     <script>
       window.dataLayer = window.dataLayer || [];
@@ -31,7 +37,11 @@
         .delay-1 { animation-delay: 0.2s; } .delay-2 { animation-delay: 0.4s; }
 
         nav { position: fixed; top: 0; width: 100%; background: rgba(5, 11, 20, 0.85); backdrop-filter: blur(16px); padding: 20px 50px; z-index: 1000; border-bottom: 1px solid var(--border-subtle); display: flex; justify-content: space-between; align-items: center; }
-        .nav-logo { color: var(--text-main); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-decoration: none; }
+        
+        /* Updated Nav Logo with Hover Effect */
+        .nav-logo { color: var(--text-main); font-family: 'Montserrat', sans-serif; font-weight: 800; font-size: 22px; text-decoration: none; transition: 0.3s; }
+        .nav-logo:hover { color: var(--accent-glow); text-shadow: 0 0 10px rgba(0,229,255,0.3); }
+        
         .nav-links a { color: var(--text-muted); text-decoration: none; margin-left: 40px; font-weight: 600; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: color 0.3s; }
         .nav-links a:hover { color: var(--accent-glow); }
 
@@ -121,7 +131,7 @@
 <body>
 
     <nav>
-        <a href="#" class="nav-logo">Subham Chakraborty</a>
+        <a href="https://www.linkedin.com/in/subham-chakraborty-982380102/" target="_blank" class="nav-logo">Subham Chakraborty</a>
         <div class="nav-links">
             <a href="#philosophy">Methodology</a>
             <a href="#calculator">ROI Engine</a>
@@ -137,7 +147,8 @@
             <p>I bridge the gap between process excellence and technology. By fusing Six Sigma RCA with AI-assisted development and BI, I transform Quality Assurance from a reactive metric into a proactive, automated business driver.</p>
             <div class="btn-group">
                 <a href="#ecosystem" class="btn-primary">Explore Automations</a>
-                <a href="pitch-deck.pdf" target="_blank" class="btn-secondary">📄 View Pitch Deck</a>
+                <a href="pitch-deck.pdf" target="_blank" class="btn-secondary">📊 View Pitch Deck</a>
+                <a href="resume.pdf" target="_blank" class="btn-secondary">📄 Download Resume</a>
             </div>
         </div>
     </header>
@@ -314,7 +325,9 @@
         </div>
     </div>
 
-    <footer><p>&copy; 2026 <span>Subham Chakraborty</span> | Orchestrating Quality. Engineering Efficiency.</p></footer>
+    <footer>
+        <p>&copy; 2026 <a href="https://www.linkedin.com/in/subham-chakraborty-982380102/" target="_blank" style="color: var(--accent-glow); text-decoration: none; font-weight: bold; transition: 0.3s;">Subham Chakraborty</a> | Orchestrating Quality. Engineering Efficiency.</p>
+    </footer>
 
     <div class="modal-overlay" id="caseStudyModal" onclick="closeOutside(event)">
         <div class="modal-content">
